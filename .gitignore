@@ -221,3 +221,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Project data - keep locally, do not upload
+data/raw/
+data/processed/*
+!data/processed/.gitkeep
+
+# Jupyter temporary files
+.ipynb_checkpoints/
