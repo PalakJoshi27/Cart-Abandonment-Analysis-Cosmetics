@@ -1,291 +1,163 @@
 # Cart Abandonment Pattern Analysis
 
+**E-commerce Data Analytics | Cosmetics Retail**
 
+---
 
-**A Data Analytics Project | E-commerce | Cosmetics Retail**
+## 1. Project Overview
 
+Cart abandonment is one of the common challenges faced by e-commerce businesses. Customers often add products to their shopping carts but leave without completing a purchase.
 
+This project analyses customer shopping events from an anonymised cosmetics online store to identify patterns associated with cart abandonment.
 
-## Project Overview
+The analysis aims to understand customer shopping behaviour, identify products and brands associated with abandoned carts, estimate the approximate value of abandoned carts, and provide actionable business recommendations.
 
-
-
-Cart abandonment is a common challenge in e-commerce. Customers may add products to their shopping carts but leave without completing a purchase.
-
-
-
-This project analyses customer shopping events from an anonymised cosmetics online store to understand which products, brands, and shopping behaviours are associated with cart abandonment.
-
-
-
-The goal is to identify patterns, estimate the approximate value associated with abandoned carts, and provide evidence-based recommendations that could help the business improve its cart conversion performance.
-
-
-
-## Business Problem
-
-
+## 2. Business Problem
 
 The business wants to understand:
 
+- Which products and brands are frequently associated with abandoned carts?
+- What shopping behaviours are associated with cart abandonment?
+- What percentage of cart sessions result in purchases?
+- What is the approximate value associated with abandoned carts?
+- Which areas should the business prioritise for improvement?
 
+## 3. Project Objectives
 
-\- Which products and brands are frequently associated with abandoned carts?
+1. Analyse the customer journey from product views to cart additions and purchases.
+2. Identify abandoned and converted cart sessions.
+3. Analyse abandonment patterns across products and brands.
+4. Estimate approximate cart value and at-risk value.
+5. Explore shopping behaviour and session duration.
+6. Develop evidence-based business recommendations.
 
-\- What shopping behaviours are associated with cart abandonment?
+## 4. Dataset Information
 
-\- What proportion of cart sessions result in purchases?
+| Attribute | Details |
+|---|---|
+| Dataset | eCommerce Events History in Cosmetics Shop |
+| Source | Kaggle |
+| Publisher | REES46 |
+| Business Domain | Cosmetics E-commerce |
+| Selected Period | December 2019 |
+| File Name | 2019-Dec.csv |
+| Data Type | Customer event-level data |
 
-\- What is the approximate value associated with abandoned cart sessions?
+**Dataset provenance:** An anonymised event log published on Kaggle by REES46 for a cosmetics online store.
 
-\- Which areas should the business prioritise for further investigation?
-
-
-
-## Project Objectives
-
-
-
-1\. Analyse the customer shopping journey from product views to cart additions and purchases.
-
-2\. Identify abandoned and converted cart sessions.
-
-3\. Examine product- and brand-level abandonment patterns.
-
-4\. Estimate the approximate cart value and value at risk.
-
-5\. Explore session duration and customer shopping behaviour.
-
-6\. Develop actionable, evidence-based business recommendations.
-
-
-
-## Dataset
-
-
-
-\- **Source:** An anonymised event log published on Kaggle by REES46.
-
-\- **Business domain:** Cosmetics e-commerce.
-
-\- **Selected period:** December 2019.
-
-\- **File:** `2019-Dec.csv`
-
-
-
-The dataset contains event-level records with information such as:
-
-
+### Dataset Columns
 
 | Column | Description |
-
 |---|---|
+| event_time | Date and time of the event |
+| event_type | Customer activity type |
+| product_id | Product identifier |
+| category_id | Product category identifier |
+| category_code | Product category code |
+| brand | Product brand |
+| price | Product price |
+| user_id | Customer identifier |
+| user_session | Shopping session identifier |
 
-| `event\_time` | Date and time of the event |
+The raw dataset is stored locally and excluded from this GitHub repository because of its large file size.
 
-| `event\_type` | Type of customer activity |
-
-| `product\_id` | Product identifier |
-
-| `category\_id` | Product category identifier |
-
-| `category\_code` | Product category code |
-
-| `brand` | Product brand |
-
-| `price` | Product price |
-
-| `user\_id` | Customer identifier |
-
-| `user\_session` | Shopping session identifier |
-
-
-
-**Note:** The raw dataset is stored locally and is not included in this GitHub repository because of its file size.
-
-
-
-## Key Business Metrics
-
-
+## 5. Key Business Metrics
 
 | Metric | Definition |
-
 |---|---|
-
 | Cart Sessions | Sessions containing at least one cart event |
-
-| Converted Cart Sessions | Cart sessions containing at least one purchase event in the same session |
-
-| Abandoned Cart Sessions | Cart sessions with no purchase event in the same session |
-
+| Converted Cart Sessions | Cart sessions containing a purchase event in the same session |
+| Abandoned Cart Sessions | Cart sessions without a purchase event in the same session |
 | Cart Abandonment Rate | Abandoned cart sessions / Total cart sessions |
-
 | Cart-Based Conversion Rate | Converted cart sessions / Total cart sessions |
-
-| Approximate Cart Value | Sum of product prices recorded in cart events within a session |
-
+| Approximate Cart Value | Sum of prices recorded in cart events within a session |
 | At-Risk Value | Approximate cart value associated with abandoned sessions |
-
 | Session Duration | Time between the first and last event in a session |
 
+**Note:** At-risk value represents the approximate value associated with abandoned carts. It is not guaranteed lost revenue.
 
+## 6. Tools and Technologies
 
-**Important:** At-risk value is an estimate of the value associated with abandoned carts. It should not be interpreted as guaranteed lost revenue.
+- Python
+- Pandas and NumPy
+- Matplotlib and Seaborn
+- SQL
+- Power BI
+- Jupyter Notebook
+- Git and GitHub
 
+## 7. Project Methodology
 
+The project follows these stages:
 
-## Tools and Technologies
+1. **Data Understanding:** Examine the dataset structure, columns, event types and initial data quality.
+2. **Data Cleaning:** Investigate missing values, duplicates, data types and other quality issues.
+3. **Session-Level Analysis:** Identify cart sessions, converted sessions and abandoned sessions.
+4. **Exploratory Data Analysis:** Investigate product, brand and customer shopping behaviour patterns.
+5. **SQL Analysis:** Calculate business metrics and validate results against Python.
+6. **Power BI Dashboard:** Develop an interactive dashboard to communicate findings.
+7. **Business Recommendations:** Translate analytical findings into prioritised recommendations.
 
-
-
-\- Python
-
-\- Pandas
-
-\- NumPy
-
-\- Matplotlib
-
-\- Seaborn
-
-\- SQL
-
-\- Power BI
-
-\- Jupyter Notebook
-
-\- Git and GitHub
-
-
-
-## Project Workflow
-
-
-
-1\. **Data Understanding:** Inspect the dataset structure, columns, event types, and initial data quality.
-
-2\. **Data Cleaning:** Handle missing values, duplicates, data types, and other data quality issues.
-
-3\. **Session-Level Analysis:** Build session-level data and identify converted and abandoned cart sessions.
-
-4\. **Exploratory Data Analysis:** Investigate abandonment patterns across products, brands, and shopping behaviour.
-
-5\. **SQL Analysis:** Reproduce key business metrics and validate results against Python.
-
-6\. **Power BI Dashboard:** Build an interactive dashboard to communicate business findings.
-
-7\. **Insights and Recommendations:** Present evidence-backed findings and prioritised recommendations.
-
-
-
-## Repository Structure
-
-
+## 8. Repository Structure
 
 ```text
-
 Cart-Abandonment-Analysis-Cosmetics/
-
-â”‚
-
-â”œâ”€â”€ data/
-
-â”‚   â”œâ”€â”€ raw/
-
-â”‚   â””â”€â”€ processed/
-
-â”‚
-
-â”œâ”€â”€ notebooks/
-
-â”‚   â””â”€â”€ 01\_data\_understanding.ipynb
-
-â”‚
-
-â”œâ”€â”€ sql/
-
-â”‚
-
-â”œâ”€â”€ powerbi/
-
-â”‚
-
-â”œâ”€â”€ reports/
-
-â”‚
-
-â”œâ”€â”€ README.md
-
-â””â”€â”€ .gitignore
-
+|
+|-- data/
+|   |-- processed/
+|       |-- .gitkeep
+|
+|-- notebooks/
+|   |-- 01_data_understanding.ipynb
+|
+|-- sql/
+|   |-- .gitkeep
+|
+|-- powerbi/
+|   |-- .gitkeep
+|
+|-- reports/
+|   |-- .gitkeep
+|
+|-- README.md
+|-- .gitignore
 ```
 
+The original dataset is maintained locally in `data/raw/` and is intentionally excluded from GitHub.
 
+## 9. Scope and Limitations
 
-## Scope and Limitations
+- The analysis focuses on one anonymised cosmetics online store and one month of data.
+- Checkout-stage information and payment failure details are unavailable.
+- Shipping charges, discounts and device information are not available.
+- A purchase in a later session may not be counted as a conversion in the original cart session.
+- The analysis identifies associations and patterns, not causal relationships.
+- Missing brand and category information will be assessed and reported during data cleaning.
 
+## 10. Project Progress
 
+**Status: In Progress**
 
-\- The analysis focuses on one anonymised cosmetics online store and one month of event data.
+- [x] Project repository setup
+- [x] Dataset selection and acquisition
+- [x] Initial data understanding notebook
+- [x] GitHub documentation setup
+- [ ] Data quality assessment
+- [ ] Data cleaning
+- [ ] Session-level analysis
+- [ ] Exploratory data analysis
+- [ ] SQL analysis and validation
+- [ ] Power BI dashboard development
+- [ ] Business insights and recommendations
 
-\- The dataset does not provide checkout-stage details, payment failures, shipping information, or discount information.
+## 11. Expected Deliverables
 
-\- A purchase occurring in a later session may not be captured as a conversion in the original cart session.
+- Cleaned and documented analytical dataset
+- Python exploratory data analysis
+- SQL queries and validated business metrics
+- Interactive Power BI dashboard
+- Business insights and prioritised recommendations
 
-\- The analysis identifies associations and patterns; it does not establish causation.
+---
 
-\- Missing values in product category and brand information will be assessed and reported during data cleaning.
-
-
-
-## Project Status
-
-
-
-**Currently in progress**
-
-
-
-\- \[x] Repository setup
-
-\- \[x] Dataset selection and acquisition
-
-\- \[x] Initial data understanding notebook created
-
-\- \[ ] Data quality assessment and cleaning
-
-\- \[ ] Session-level analysis
-
-\- \[ ] Exploratory data analysis
-
-\- \[ ] SQL analysis and validation
-
-\- \[ ] Power BI dashboard
-
-\- \[ ] Business insights and recommendations
-
-
-
-## Expected Deliverables
-
-
-
-\- Cleaned and documented analytical data
-
-\- Python exploratory data analysis
-
-\- SQL queries and validated business metrics
-
-\- Interactive Power BI dashboard
-
-\- Business findings and prioritised recommendations
-
-
-
-\---
-
-
-
-*This project is being developed as a practical portfolio project to demonstrate data analysis, SQL, business understanding, and data visualisation skills.*`n
+**Project Purpose:** To demonstrate practical data analytics skills, including data preparation, exploratory analysis, SQL, data visualisation and business problem-solving.
